@@ -8,7 +8,6 @@ $(function(){
       $.ajax({
         method: "GET",
         url: "admin/links",
-        data:q,
         success: function (res) {
           if(res.status !== 0){
             return layer.msg(res.message)
@@ -94,8 +93,7 @@ $(function(){
           // 设置预览图片效果
           $('#preIcon').attr('src', 'http://localhost:8888/uploads/' + res.data.linkicon)
           // 初始化表单数据
-          delete res.data.linkicon
-          form.val('editForm', res.data)
+          loadLinksInfo()
           
           // 绑定文件上传按钮点击事件
           $('#urlIcon').click(function () {
