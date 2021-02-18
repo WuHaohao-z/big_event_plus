@@ -14,7 +14,7 @@ $(function(){
       // 关闭弹窗
       layer.close(index)
       // 跳转到登录页面
-      location.href = '/index.html'
+      location.href = '/login.html'
     });
   })
 })
