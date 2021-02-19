@@ -19,7 +19,7 @@ $(function(){
       });
     }
     
-    // 添加友情链接
+    // 添加
     $('#add-link').click(function () {
       var index = layer.open({
         type: 1,
@@ -27,16 +27,16 @@ $(function(){
         content: $('#add-form-tpl').html(),
         area: ['500px', '350px']
       })
-      // 绑定文件上传按钮点击事件
+      // 文件上传按钮点击事件
       $('#urlIcon').click(function () {
         $('#linkFile').click()
       })
-      // 监听文件选中事件
+      // 文件选中
       $('#linkFile').change(function (e) {
         const objectURL = URL.createObjectURL(e.target.files[0])
         $('#preIcon').attr('src', objectURL)
       })
-      // 绑定添加链接的提交事件
+      // 添加提交
       $('#add-form').submit(function (e) {
         e.preventDefault()
         var fd = new FormData(this)
@@ -58,7 +58,7 @@ $(function(){
       })
     })
 
-    // 删除友情链接
+    // 删除
     $('.layui-table tbody').on('click', '.delete', function (e) { 
       var id = $(e.target).data('id')
       layer.confirm('确实要删除吗？', function (index) {
@@ -76,10 +76,10 @@ $(function(){
       })
     })
 
-    // 编辑友情链接
+    // 编辑
     $('.layui-table tbody').on('click', '.edit', function (e) {
       var id = $(e.target).data('id')
-      // 获取链接数据
+      // 获取数据
       $.ajax({
         type: 'get',
         url: 'admin/links/' + id,
@@ -95,11 +95,11 @@ $(function(){
           // 初始化表单数据
           loadLinksInfo()
           
-          // 绑定文件上传按钮点击事件
+          // 文件上传按钮点击
           $('#urlIcon').click(function () {
             $('#linkFile').click()
           })
-          // 监听文件选中事件
+          // 文件选中
           let file = null
           $('#linkFile').change(function (e) {
             const objectURL = URL.createObjectURL(e.target.files[0])
@@ -107,7 +107,7 @@ $(function(){
             $('#preIcon').attr('src', objectURL)
           })
 
-          // 绑定表单提交事件
+          // 表单提交
           $('#edit-form').submit(function (e) {
             e.preventDefault()
             var fd = new FormData(this)
