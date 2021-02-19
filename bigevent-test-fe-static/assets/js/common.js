@@ -1,13 +1,11 @@
 $(function () {
-  /*
-    通用的接口调用设置
-  */
-  // var baseURL = 'http://ajax.frontend.itheima.net/'
-  // var baseURL = 'http://www.liulongbin.top:3007/'
+
+
   var baseURL = 'http://localhost:8888/'
 
   // 所有的请求发送之前经过该函数，可以对相关请求和响应做一些调整
   $.ajaxPrefilter(function (option) {
+
     // 形参option是jQuery请求方法的配置信息
     // 发送请求之前会触发beforeSend
     option.beforeSend = function () {
@@ -38,7 +36,10 @@ $(function () {
         // 把无效的token清除
         localStorage.removeItem('mytoken')
         // 如果身份验证失败了，就跳转到登录页面
+
         // parent.window.location.href = '../login1.html'
+
+
       }
     }
   })
