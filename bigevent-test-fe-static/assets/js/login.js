@@ -19,7 +19,7 @@ $(function () {
         // 登录成功后，跳转到主页面
         if (res.status === 0) {
           // 把登录成功的标志位存储在客户端
-          sessionStorage.setItem('mytoken', res.token)
+          sessionStorage.setItem('token', res.token)
           // 跳转到主页面
           location.href = './index.html'
         } else {

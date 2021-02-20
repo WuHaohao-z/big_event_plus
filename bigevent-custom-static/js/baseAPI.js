@@ -18,7 +18,7 @@ $(function () {
         // 所有包含my的请求路径需要进行权限验证（需要先登录）
         // header默认不存在，所以需要设置一个对象
         option.headers = {
-          Authorization: sessionStorage.getItem('mytoken')
+          Authorization: localStorage.getItem('token')
         }
       }
       // 3、处理通用的异常情况
@@ -29,9 +29,9 @@ $(function () {
         // 处理失败的情况
         if (res.responseJSON && res.responseJSON.status === 401 && res.responseJSON.message === '身份认证失败！') {
           // 把无效的token清除
-          localStorage.removeItem('mytoken')
+          localStorage.removeItem('token')
           // 如果身份验证失败了，就跳转到登录页面
-          parent.window.location.href = '../login1.html'
+          // parent.window.location.href = '../bigevent-test-fe-static/login.html'
         }
       }
     })
