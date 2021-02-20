@@ -1,8 +1,13 @@
 $(function () {
+
+
   var baseURL = 'http://localhost:8888/'
 
   // 所有的请求发送之前经过该函数，可以对相关请求和响应做一些调整
   $.ajaxPrefilter(function (option) {
+
+    // 形参option是jQuery请求方法的配置信息
+    // 发送请求之前会触发beforeSend
     option.beforeSend = function () {
       // 发送请求之前开始进度条(添加window防止报错)
       window.NProgress && window.NProgress.start()
@@ -18,7 +23,7 @@ $(function () {
       // 所有包含my的请求路径需要进行权限验证（需要先登录）
       // header默认不存在，所以需要设置一个对象
       option.headers = {
-        Authorization: sessionStorage.getItem('mytoken')
+        Authorization: sessionStorage.getItem('token')
       }
     }
     // 3、处理通用的异常情况
@@ -31,7 +36,18 @@ $(function () {
         // 把无效的token清除
         localStorage.removeItem('mytoken')
         // 如果身份验证失败了，就跳转到登录页面
+<<<<<<< HEAD
         parent.window.location.href = '../login.html'
+=======
+<<<<<<< HEAD
+        parent.window.location.href = '../login.html'
+=======
+
+        // parent.window.location.href = '../login1.html'
+
+
+>>>>>>> 4cf218bcdb8294d6bf90c320d620a7ccd895b984
+>>>>>>> 0b150e6464e19957942b8a4a5c69da061fa9a9ba
       }
     }
   })
